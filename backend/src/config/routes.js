@@ -6,6 +6,13 @@ module.exports = function(server) {
   server.use('/api', router)
 
   // Rotas
-  const justLend = require('../api/justLend/justLendService')
-  justLend.register(router, '/justLends')
+  const userService = require('../api/justLend/userService')
+  userService.register(router, '/users')
+
+  const categoryService = require('../api/justLend/categoryService')
+  categoryService.register(router, '/categories')
+
+  const objetoService = require('../api/justLend/objetoService')
+  objetoService.register(router, '/objetos')
+
 }

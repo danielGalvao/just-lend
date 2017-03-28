@@ -3,7 +3,7 @@ const mongoose = restful.mongoose
 
 const objetoSchema = mongoose.Schema({
   name: { type: String, required: true },
-  type: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' }
+  type: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
   descr: { type: String, required: false, max: 2000 },
   image: { type: String, required: false },
   status: {

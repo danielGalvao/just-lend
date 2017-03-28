@@ -1,7 +1,7 @@
 const restful = require('node-restful')
 const mongoose = restful.mongoose
 
-const CategorySchema = mongoose.Schema({
+const categorySchema = mongoose.Schema({
   name: { type: String, required: true }
 })
 
