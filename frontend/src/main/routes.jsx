@@ -3,7 +3,7 @@ import { Router, Route, Redirect, hashHistory } from 'react-router';
 
 import Home from '../templates/Home';
 import Objects from '../templates/Objects';
-import AddObjects from '../templates/addObjects';
+import AddObjects from '../templates/AddObjects';
 
 export default props => (
   <Router history={hashHistory}>
