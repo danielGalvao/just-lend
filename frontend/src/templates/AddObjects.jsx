@@ -3,6 +3,9 @@ import axios from 'axios'
 
 const URL = 'http://localhost:3003/api/categories'
 
+import Select from './forms/select'
+import Input from './forms/input'
+
 export default class AddObjects extends Component {
   constructor(props) {
     super(props)
@@ -15,7 +18,6 @@ export default class AddObjects extends Component {
     axios.get(`${URL}`)
       .then(resp => {
         this.setState({...this.state, listCategory: resp.data})
-        console.log(resp.data)
       })
   }
 
@@ -33,26 +35,9 @@ export default class AddObjects extends Component {
             <div className="boxed">
               <div className="col-sm-8">
                 <div className="row">
-                  <div className="col-sm-6">
-                      <div className="form-group">
-                          <input type="text" className="form-control" placeholder="Nome *" id="objectName" name="objectName" required />
-                      </div>
-                  </div>
-                  <div className="col-sm-6">
-                      <div className="form-group">
-                        <select className="selectpicker form-control"  id="objectCategory" name="objectCategory" required >
-                          <option>Selecione</option>
-                          <option>Categoria 1</option>
-                          <option>Categoria 2</option>
-                          <option>Categoria 3</option>
-                        </select>
-                      </div>
-                  </div>
-                  <div className="col-sm-12">
-                      <div className="form-group">
-                          <input type="text" className="form-control" placeholder="URL da Imagem" id="objectImage" name="objectImage" />
-                      </div>
-                  </div>
+                  <Input col="col-sm-6" inputName="objectName" placeholder="Nome" />
+                  <Select list={this.state.listCategory} selectName="objectCategory" />
+                  <Input col="col-sm-12" inputName="objectImage" placeholder="URL da Imagem" />
                   <div className="col-sm-12">
                       <div className="form-group">
                           <textarea className="form-control" rows="6" placeholder="Descrição..." name="objectDescription"></textarea>
