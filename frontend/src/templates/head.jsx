@@ -2,9 +2,9 @@ import React from 'react'
 
 export default props => (
   <header className="jumbotron hero-spacer">
-      <h1>A Warm Welcome!</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-      <p><a className="btn btn-primary btn-large">Call to action!</a>
+      <h1>Apenas Empreste!</h1>
+      <p>Essa aplicação foi pensada apenas para facilitar a divulgação, emprestimo e busca de objetos. Nunca se sabe quando você vai precisar de algo. Muito menos de quem possui isso.</p>
+      <p><a href="#/add" className="btn btn-primary btn-large">Cadatre agora!</a>
       </p>
   </header>
 )
