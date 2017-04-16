@@ -8,10 +8,10 @@ export default class AddObjects extends Component {
     super(props)
     this.state = { listCategory: [] }
 
-    this.refresh()
+    this.getCategories()
   }
 
-  refresh() {
+  getCategories() {
     axios.get(`${URL}?sort=-createdAt`)
       .then(resp => {
         this.setState({...this.state, listCategory: resp.data})
