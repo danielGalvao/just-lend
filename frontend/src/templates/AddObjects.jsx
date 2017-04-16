@@ -12,7 +12,7 @@ export default class AddObjects extends Component {
   }
 
   getCategories() {
-    axios.get(`${URL}?sort=-createdAt`)
+    axios.get(`${URL}`)
       .then(resp => {
         this.setState({...this.state, listCategory: resp.data})
         console.log(resp.data)
