@@ -1,9 +1,24 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+
+const URL = 'http://localhost:3003/api/categories'
 
 export default class AddObjects extends Component {
   constructor(props) {
     super(props)
+    this.state = { listCategory: [] }
+
+    this.refresh()
   }
+
+  refresh() {
+    axios.get(`${URL}?sort=-createdAt`)
+      .then(resp => {
+        this.setState({...this.state, listCategory: resp.data})
+        console.log(resp.data)
+      })
+  }
+
 
   render() {
     return (

@@ -1,6 +1,6 @@
-const categoryService = require('./category')
+const categoryServ = require('./category')
 
-categoryService.methods(['get', 'post', 'put', 'delete'])
-categoryService.updateOptions({new: true, runValidators: true})
+categoryServ.methods(['get', 'post', 'put', 'delete'])
+categoryServ.updateOptions({new: true, runValidators: true})
 
-module.exports = categoryService
+module.exports = categoryServ
