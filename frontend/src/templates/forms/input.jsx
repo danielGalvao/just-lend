@@ -9,7 +9,7 @@ export default class Select extends Component {
     return (
       <div className={this.props.col}>
           <div className="form-group">
-              <input type="text" className="form-control" placeholder={this.props.placeholder} id={this.props.inputName} name={this.props.inputName} />
+              <input value={this.props.value} onChange={this.props.onChange} type="text" className="form-control" placeholder={this.props.placeholder} id={this.props.inputName} name={this.props.inputName} />
           </div>
       </div>
     )

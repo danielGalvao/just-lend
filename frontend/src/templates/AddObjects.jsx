@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-const URL = 'http://localhost:3003/api/categories'
+const URLCat = 'http://localhost:3003/api/categories'
 
 import Select from './forms/select'
 import Input from './forms/input'
 
-export default class AddObjects extends Component {
+import { changeName, changeImageURL, changeDescription } from '../objects/objectActions'
+
+class AddObjects extends Component {
   constructor(props) {
     super(props)
     this.state = { listCategory: [] }
@@ -15,7 +19,7 @@ export default class AddObjects extends Component {
   }
 
   getCategories() {
-    axios.get(`${URL}`)
+    axios.get(`${URLCat}`)
       .then(resp => {
         this.setState({...this.state, listCategory: resp.data})
       })
@@ -35,12 +39,32 @@ export default class AddObjects extends Component {
             <div className="boxed">
               <div className="col-sm-8">
                 <div className="row">
-                  <Input col="col-sm-6" inputName="objectName" placeholder="Nome" />
-                  <Select list={this.state.listCategory} selectName="objectCategory" />
-                  <Input col="col-sm-12" inputName="objectImage" placeholder="URL da Imagem" />
+                  <Input
+                    col="col-sm-6"
+                    inputName="name"
+                    placeholder="Nome"
+                    valeu={this.props.name}
+                    onChange={this.props.changeName}
+                  />
+                <Select list={this.state.listCategory} selectName="objectCategory" />
+                  <Input
+                    col="col-sm-12"
+                    inputName="imageURL"
+                    placeholder="URL da Imagem"
+                    value={this.props.imageURL}
+                    onChange={this.props.changeImageURL}
+                  />
                   <div className="col-sm-12">
                       <div className="form-group">
-                          <textarea className="form-control" rows="6" placeholder="Descrição..." name="objectDescription"></textarea>
+                          <textarea
+                            className="form-control"
+                            rows="6"
+                            placeholder="Descrição..."
+                            name="description"
+                            id="description"
+                            onChange={this.props.changeDescription}
+                            value={this.props.description}
+                          />
                       </div>
                   </div>
                   <div className="text-center mt20 col-sm-12">
@@ -55,3 +79,12 @@ export default class AddObjects extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  name: state.object.name,
+  imageURL: state.object.imageURL,
+  description: state.object.description
+})
+const mapDispatchToProps = dispatch => bindActionCreators({changeName, changeImageURL, changeDescription}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddObjects);
