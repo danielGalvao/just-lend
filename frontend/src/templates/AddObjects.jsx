@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 const URLCat = 'http://localhost:3003/api/categories'
 
@@ -87,4 +87,4 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => bindActionCreators({changeName, changeImageURL, changeDescription}, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddObjects);
+export default connect(mapStateToProps, mapDispatchToProps)(AddObjects)
