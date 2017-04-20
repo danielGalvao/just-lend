@@ -9,7 +9,7 @@ export default class Select extends Component {
   renderOptions() {
     const list = this.props.list || []
     return list.map(cat => (
-      <option key={cat._id}>{cat.name}</option>
+      <option key={cat._id} value={cat._id}>{cat.name}</option>
     ))
   }
 
@@ -17,7 +17,7 @@ export default class Select extends Component {
     return (
       <div className="col-sm-6">
           <div className="form-group">
-            <select className="selectpicker form-control"  id={this.props.selectName} name={this.props.selectName}>
+            <select onChange={this.props.onChange} className="selectpicker form-control"  id={this.props.selectName} name={this.props.selectName}>
               <option>Selecione</option>
               {this.renderOptions()}
             </select>

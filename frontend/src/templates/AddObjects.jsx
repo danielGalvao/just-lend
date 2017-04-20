@@ -8,7 +8,7 @@ const URLCat = 'http://localhost:3003/api/categories'
 import Select from './forms/select'
 import Input from './forms/input'
 
-import { changeName, changeImageURL, changeDescription } from '../objects/objectActions'
+import { changeName, changeImageURL, changeDescription, changeCategory } from '../objects/objectActions'
 
 class AddObjects extends Component {
   constructor(props) {
@@ -46,7 +46,11 @@ class AddObjects extends Component {
                     valeu={this.props.name}
                     onChange={this.props.changeName}
                   />
-                <Select list={this.state.listCategory} selectName="objectCategory" />
+                  <Select
+                    list={this.state.listCategory}
+                    selectName="objectCategory"
+                    onChange={this.props.changeCategory}
+                  />
                   <Input
                     col="col-sm-12"
                     inputName="imageURL"
@@ -83,8 +87,14 @@ class AddObjects extends Component {
 const mapStateToProps = state => ({
   name: state.object.name,
   imageURL: state.object.imageURL,
-  description: state.object.description
+  description: state.object.description,
+  category: state.object.category
 })
-const mapDispatchToProps = dispatch => bindActionCreators({changeName, changeImageURL, changeDescription}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({
+  changeName,
+  changeImageURL,
+  changeDescription,
+  changeCategory
+}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddObjects)

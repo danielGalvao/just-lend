@@ -1,4 +1,4 @@
-const INITIAL_STATE = { name: '', type: '', imageURL: '', description: '' }
+const INITIAL_STATE = { name: '', type: '', imageURL: '', description: '', category: ''}
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -8,6 +8,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, imageURL: action.payload }
     case 'DESCRIPTION_CHANGED':
       return { ...state, description: action.payload }
+    case 'CATEGORY_CHANGED':
+      return { ...state, category: action.payload }
     default:
       return state;
   }
