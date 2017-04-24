@@ -21,3 +21,11 @@ export const changeCategory = event => ({
   type: 'CATEGORY_CHANGED',
   payload: event.target.value
 })
+
+export function create(values) {
+  console.log(values)
+  //axios.post(`${URL}`, values)
+  return {
+    type: 'CREATE_OBJECT'
+  }
+}

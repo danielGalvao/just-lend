@@ -5,10 +5,9 @@ import { bindActionCreators } from 'redux'
 
 const URLCat = 'http://localhost:3003/api/categories'
 
-import Select from './forms/select'
-import Input from './forms/input'
+import ObjectForm from '../objects/ObjectForm'
 
-import { changeName, changeImageURL, changeDescription, changeCategory } from '../objects/objectActions'
+import { changeName, changeImageURL, changeDescription, changeCategory, create } from '../objects/objectActions'
 
 class AddObjects extends Component {
   constructor(props) {
@@ -38,43 +37,7 @@ class AddObjects extends Component {
           <div className="row">
             <div className="boxed">
               <div className="col-sm-8">
-                <div className="row">
-                  <Input
-                    col="col-sm-6"
-                    inputName="name"
-                    placeholder="Nome"
-                    valeu={this.props.name}
-                    onChange={this.props.changeName}
-                  />
-                  <Select
-                    list={this.state.listCategory}
-                    selectName="objectCategory"
-                    onChange={this.props.changeCategory}
-                  />
-                  <Input
-                    col="col-sm-12"
-                    inputName="imageURL"
-                    placeholder="URL da Imagem"
-                    value={this.props.imageURL}
-                    onChange={this.props.changeImageURL}
-                  />
-                  <div className="col-sm-12">
-                      <div className="form-group">
-                          <textarea
-                            className="form-control"
-                            rows="6"
-                            placeholder="Descrição..."
-                            name="description"
-                            id="description"
-                            onChange={this.props.changeDescription}
-                            value={this.props.description}
-                          />
-                      </div>
-                  </div>
-                  <div className="text-center mt20 col-sm-12">
-                      <button type="submit" className="btn btn-robot col-sm-12" id="objectSubmit">Enviar</button>
-                  </div>
-                </div>
+                <ObjectForm  onSubmit={this.props.create} />
               </div>
             </div>
           </div>
@@ -94,7 +57,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   changeName,
   changeImageURL,
   changeDescription,
-  changeCategory
+  changeCategory,
+  create
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddObjects)
