@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 
 const URLCat = 'http://localhost:3003/api/categories'
 
-import ObjectForm from '../objects/ObjectForm'
+import ObjectForm from '../objects/objectForm'
 
 import { changeName, changeImageURL, changeDescription, changeCategory, create } from '../objects/objectActions'
 

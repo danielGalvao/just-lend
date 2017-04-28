@@ -1,6 +1,6 @@
 import React from 'react'
 import Reduxtoastr from 'react-redux-toastr'
-import 'modules/react-redux-toastr/lib/css/react-redux-toastr'
+import 'modules/react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
 export default props => (
   <Reduxtoastr

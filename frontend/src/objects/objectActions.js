@@ -24,6 +24,7 @@ export const changeCategory = event => ({
 })
 
 export function create(values) {
+  values.type = '58f2d3fafefb22482d10613e'
   axios.post(`${URL}`, values)
     .then(resp => {
       toastr.success('Sucesso', 'Objeto cadastrado com sucesso!')
