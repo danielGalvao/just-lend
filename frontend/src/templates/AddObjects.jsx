@@ -7,7 +7,7 @@ const URLCat = 'http://localhost:3003/api/categories'
 
 import ObjectForm from '../objects/objectForm'
 
-import { changeName, changeImageURL, changeDescription, changeCategory, create } from '../objects/objectActions'
+import { create } from '../objects/objectActions'
 
 class AddObjects extends Component {
   constructor(props) {
@@ -47,18 +47,8 @@ class AddObjects extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  name: state.object.name,
-  imageURL: state.object.imageURL,
-  description: state.object.description,
-  category: state.object.category
-})
 const mapDispatchToProps = dispatch => bindActionCreators({
-  changeName,
-  changeImageURL,
-  changeDescription,
-  changeCategory,
   create
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddObjects)
+export default connect(mapDispatchToProps)(AddObjects)
