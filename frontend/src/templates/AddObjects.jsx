@@ -3,11 +3,10 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-const URLCat = 'http://localhost:3003/api/categories'
-
 import ObjectForm from '../objects/objectForm'
-
 import { create } from '../objects/objectActions'
+
+const URLCat = 'http://localhost:3003/api/categories'
 
 class AddObjects extends Component {
   constructor(props) {
@@ -24,7 +23,6 @@ class AddObjects extends Component {
       })
   }
 
-
   render() {
     return (
       <div className="container">
@@ -37,7 +35,7 @@ class AddObjects extends Component {
           <div className="row">
             <div className="boxed">
               <div className="col-sm-8">
-                <ObjectForm  onSubmit={this.props.create} />
+                <ObjectForm listCategory={this.state.listCategory} onSubmit={this.props.create} />
               </div>
             </div>
           </div>

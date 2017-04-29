@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default props => (
-  <div className={props.col}>
+  <div className={props.cols}>
       <div className="form-group">
           <input
             {...props.input}

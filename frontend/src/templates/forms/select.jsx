@@ -17,7 +17,7 @@ export default class Select extends Component {
     return (
       <div className="col-sm-6">
           <div className="form-group">
-            <select onChange={this.props.onChange} className="selectpicker form-control"  id={this.props.selectName} name={this.props.selectName}>
+            <select {...this.props.input} className="selectpicker form-control">
               <option>Selecione</option>
               {this.renderOptions()}
             </select>
