@@ -49,4 +49,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   create
 }, dispatch)
 
-export default connect(mapDispatchToProps)(AddObjects)
+export default connect(null, mapDispatchToProps)(AddObjects)
