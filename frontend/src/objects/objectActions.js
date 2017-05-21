@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
-import { reset as resetForm } from 'redux-form'
+import { reset } from 'redux-form'
 
 const URL = 'http://localhost:3003/api'
 
@@ -9,10 +9,7 @@ export function create(values) {
     'method': 'post',
     'msg': 'Objeto cadastrado com sucesso!'
   }
-  submit(values, params)
-  return {
-    type: 'CREATE_OBJECT'
-  }
+  return submit(values, params)
 }
 
 export function update(values) {
@@ -20,18 +17,17 @@ export function update(values) {
     'method': 'put',
     'msg': 'Objeto atualizado com sucesso!'
   }
-  submit(values, params)
-  return {
-    type: 'UPDATE_OBJECT'
-  }
+  return submit(values, params)
 }
 
 function submit(values, params) {
   const id = values._id ? values._id : ''
-  axios[params.method](`${URL}/objetos/${id}`, values)
+
+  return dispatch => {
+    axios[params.method](`${URL}/objetos/${id}`, values)
     .then(resp => {
-      toastr.success('Sucesso', params.msg)
-      resetForm('objectForm')
+        toastr.success('Sucesso', params.msg)
+        dispatch(reset('objectForm'))
     })
     .catch(err => {
       if(err.response) {
@@ -40,4 +36,5 @@ function submit(values, params) {
         )
       }
     })
+  }
 }
