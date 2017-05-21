@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form'
 import Input from '../templates/forms/input'
 import Select from '../templates/forms/select'
 import Textarea from '../templates/forms/textarea'
+import validateObject from './validateObjectForm'
 
 class ObjectForm extends Component {
 
@@ -24,4 +25,7 @@ class ObjectForm extends Component {
   }
 }
 
-export default reduxForm({form: 'objectForm'})(ObjectForm)
+export default reduxForm({
+    form: 'objectForm',
+    validateObject
+})(ObjectForm)
