@@ -4,7 +4,6 @@ import { toastr } from 'react-redux-toastr'
 const URL = 'http://localhost:3003/api'
 
 export function create(values) {
-  values.type = '58f2d3fafefb22482d10613e'
   const params = {
     'method': 'post',
     'msg': 'Objeto cadastrado com sucesso!'
