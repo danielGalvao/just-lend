@@ -15,9 +15,9 @@ class ObjectForm extends Component {
           <Field name='name' component={Input} type='text' cols="col-sm-6" placeholder="Nome" />
           <Field name='type' component={Select} type='select' cols="col-sm-6" list={listCategory} />
           <Field name='image' component={Input} type='text' cols="col-sm-12" placeholder="URL da imagem" />
-          <Field name='descr' component={Textarea} type='textarea' textarea={true} placeholder="Descrição" cols="col-sm-12" />
+          <Field name='descr' component={Textarea} type='textarea' textarea={true} placeholder="Descrição do objeto" cols="col-sm-12" />
           <div className="text-center mt20 col-sm-12">
-            <button type="submit" className="btn btn-robot col-sm-12">Enviar</button>
+            <button type="submit" className="btn btn-robot col-sm-12">Cadastrar</button>
           </div>
         </form>
       </div>

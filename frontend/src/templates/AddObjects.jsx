@@ -28,7 +28,7 @@ class AddObjects extends Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <h1>Cadastre</h1>
+            <h1>Cadastre seu objeto</h1>
           </div>
         </div>
         <section>
