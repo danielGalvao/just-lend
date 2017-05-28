@@ -1,18 +1,28 @@
 const express = require('express')
+const auth = require('./auth')
 
 module.exports = function(server) {
-  // URL base
-  const router = express.Router()
-  server.use('/api', router)
-
-  // Rotas
-  const userService = require('../api/justLend/userService')
-  userService.register(router, '/users')
+  /*
+  * Rotas protegidas
+  */
+  const protectedApi = express.Router()
+  server.use('/api', protectedApi)
+  protectedApi.use(auth)
 
   const categoryService = require('../api/justLend/categoryService')
-  categoryService.register(router, '/categories')
+  categoryService.register(protectedApi, '/categories')
 
   const objetoService = require('../api/justLend/objetoService')
-  objetoService.register(router, '/objetos')
+  objetoService.register(protectedApi, '/objetos')
 
+  /*
+  * Rotas abertas
+  */
+  const openApi = express.Router()
+  server.use('/oapi', openApi)
+
+  const AuthService = require('../api/user/UserService')
+  openApi.post('/login', AuthService.login)
+  openApi.post('/singunp', AuthService.signup)
+  openApi.post('/validateToken', AuthService.validateToken)
 }
