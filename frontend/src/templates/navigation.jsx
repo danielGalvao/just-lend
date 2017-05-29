@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from './navbar'
 
 export default props => (
    <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -21,6 +22,7 @@ export default props => (
                        <a href="#/add">Cadastre</a>
                    </li>
                </ul>
+               <Navbar />
            </div>
        </div>
    </nav>

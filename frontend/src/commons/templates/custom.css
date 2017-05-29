@@ -13,3 +13,25 @@ body {
 footer {
     margin: 50px 0;
 }
+
+.navbar-collapse .navbar-custom-menu {
+  float: right;
+}
+
+.navbar-collapse .navbar-custom-menu li .user-image {
+  width: 20px;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+
+.user-menu .user-header {
+  text-align: center;
+}
+
+.user-menu .user-header p > small {
+  display: block;
+}
+
+.dropdown-menu {
+  padding: 10%;
+}
