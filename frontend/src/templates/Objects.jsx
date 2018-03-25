@@ -8,8 +8,8 @@ export default class Objects extends Component {
   render() {
     return (
       <div className="container">
-        <div class="row">
-            <div class="col-lg-12">
+        <div className="row">
+            <div className="col-lg-12">
                 <h1>Encontre</h1>
             </div>
         </div>
