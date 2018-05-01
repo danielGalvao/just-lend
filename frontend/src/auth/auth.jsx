@@ -4,8 +4,7 @@ import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { login, signup } from './authActions'
-import If from '../common/operator/if'
-import Input from '../common/form/inputAuth'
+import Input from '../templates/forms/inputAuth'
 
 class Auth extends Component {
   constructor(props) {

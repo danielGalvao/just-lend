@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import ObjectForm from '../objects/objectForm'
 import { create } from '../objects/objectActions'
 
-const URLCat = 'http://localhost:3003/api/categories'
+const URLCat = 'http://localhost:5005/api/categories'
 
 class AddObjects extends Component {
   constructor(props) {

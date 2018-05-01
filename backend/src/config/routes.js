@@ -3,11 +3,11 @@ const auth = require('./auth')
 
 module.exports = function(server) {
   /*
-  * Rotas protegidas
+  * Protected routes
   */
   const protectedApi = express.Router()
   server.use('/api', protectedApi)
-  protectedApi.use(auth)
+  //protectedApi.use(auth)
 
   const categoryService = require('../api/justLend/categoryService')
   categoryService.register(protectedApi, '/categories')
@@ -16,7 +16,7 @@ module.exports = function(server) {
   objetoService.register(protectedApi, '/objetos')
 
   /*
-  * Rotas abertas
+  * Public routes
   */
   const openApi = express.Router()
   server.use('/oapi', openApi)
